@@ -34,7 +34,7 @@ const Footer = ({ setCurrentPage }) => {
           <div>
             <h3 className="text-white font-bold mb-6">Company</h3>
             <div className="space-y-3">
-              {['About', 'Services', 'Portfolio', 'Blog', 'Team', 'Contact'].map((item) => (
+              {['About', 'Services', 'Portfolio', 'Blog', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => setCurrentPage(item.toLowerCase())}

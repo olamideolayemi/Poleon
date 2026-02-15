@@ -89,47 +89,47 @@ const HomePage = ({ onNavigate }) => {
     },
   ];
 
-  const portfolioItems = [
-    {
-      name: "Home & Office",
-      logo: "/logos/home-office.jpeg",
-      logoFallback: "H&O",
-      challenge:
-        "Furniture content looked generic and did not communicate trust, practicality, or authority.",
-      action:
-        "We rebuilt visual language, tightened digital operations, and published authentic, informative, consistent content.",
-      result:
-        "Result: stronger engagement, hundreds of new interested customers, and clearer market authority since July 2025.",
-    },
-    {
-      name: "Priceslash",
-      logo: "/logos/priceslash.jpeg",
-      logoFallback: "PS",
-      challenge:
-        "No online presence and low awareness for fast-moving consumer products.",
-      action:
-        "We built the brand online from scratch, tested formats, and scaled educational comparison content and reels.",
-      result:
-        "increased awareness, engagement, and sales through strategic posting and content planning.",
-    },
-  ];
+  // const portfolioItems = [
+  //   {
+  //     name: "Home & Office",
+  //     logo: "/logos/home-office.jpeg",
+  //     logoFallback: "H&O",
+  //     challenge:
+  //       "Furniture content looked generic and did not communicate trust, practicality, or authority.",
+  //     action:
+  //       "We rebuilt visual language, tightened digital operations, and published authentic, informative, consistent content.",
+  //     result:
+  //       "Result: stronger engagement, hundreds of new interested customers, and clearer market authority since July 2025.",
+  //   },
+  //   {
+  //     name: "Priceslash",
+  //     logo: "/logos/priceslash.jpeg",
+  //     logoFallback: "PS",
+  //     challenge:
+  //       "No online presence and low awareness for fast-moving consumer products.",
+  //     action:
+  //       "We built the brand online from scratch, tested formats, and scaled educational comparison content and reels.",
+  //     result:
+  //       "increased awareness, engagement, and sales through strategic posting and content planning.",
+  //   },
+  // ];
 
   const testimonials = [
     {
       name: "Sarah Chen",
-      company: "TechMart CEO",
+      company: "Home and Office",
       text: "POLEON transformed our digital strategy. The results speak for themselves - triple revenue in 6 months.",
       rating: 5,
     },
     {
       name: "Marcus Williams",
-      company: "CloudSync Founder",
+      company: "Price Slash",
       text: "The team's strategic approach and execution excellence are unmatched. They're true partners in growth.",
       rating: 5,
     },
     {
       name: "Elena Rodriguez",
-      company: "FinPro CMO",
+      company: "Whitecrest Factor",
       text: "Working with POLEON was a game-changer. Their insights and strategy drove phenomenal engagement.",
       rating: 5,
     },
@@ -295,7 +295,7 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* Portfolio Highlights */}
-      <section className="relative py-32 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent">
+      {/* <section className="relative py-32 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-6">Case Studies</h2>
@@ -375,7 +375,7 @@ const HomePage = ({ onNavigate }) => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Analytics Section */}
       <section className="relative py-32">
