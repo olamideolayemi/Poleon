@@ -28,7 +28,7 @@ export default function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <HomePage />;
+        return <HomePage onNavigate={setCurrentPage} />;
       case 'about':
         return <AboutPage />;
       case 'services':
@@ -40,7 +40,7 @@ export default function App() {
       case 'contact':
         return <ContactPage />;
       default:
-        return <HomePage />;
+        return <HomePage onNavigate={setCurrentPage} />;
     }
   };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, Sparkles, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 // Navigation Component
 const Navigation = ({ currentPage, setCurrentPage, isScrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,8 +19,8 @@ const Navigation = ({ currentPage, setCurrentPage, isScrolled }) => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
-          <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-violet-600 rounded-lg flex items-center justify-center">
-            <Sparkles className="w-6 h-6 text-white" />
+          <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
+            <img src="/logos/poleon-1.png" alt="Poleon logo" className="w-full h-full object-contain" />
           </div>
           <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
             POLEON

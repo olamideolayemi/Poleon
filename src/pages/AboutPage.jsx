@@ -12,17 +12,17 @@ const AboutPage = () => {
 
   const timeline = [
     { year: '2019', event: 'Founded', description: 'POLEON launched with a vision to revolutionize digital strategy' },
-    { year: '2020', event: 'First 50 Clients', description: 'Rapidly grew client base with proven results' },
+    { year: '2020', event: 'First 5 Clients', description: 'Rapidly grew client base with proven results' },
     { year: '2022', event: 'Series A Funding', description: 'Secured investment to scale operations' },
     { year: '2024', event: 'Global Expansion', description: 'Opened offices in 5 countries' },
     { year: '2026', event: 'Industry Leader', description: 'Recognized as top digital strategy firm' }
   ];
 
   const team = [
-    { name: 'Alex Rivera', role: 'Founder & CEO', expertise: 'Digital Strategy' },
-    { name: 'Sarah Kim', role: 'Chief Strategy Officer', expertise: 'Growth Analytics' },
-    { name: 'Marcus Johnson', role: 'Head of Creative', expertise: 'Brand Identity' },
-    { name: 'Elena Chen', role: 'VP of Operations', expertise: 'Client Success' }
+    { name: 'Anthony Ojonimi', role: 'Founder & Lead Strategist', expertise: 'Leads social strategy, planning, and monthly optimization to ensure each client sees measurable growth.' },
+    { name: 'Chioma Jacob', role: 'Content Strategy Lead', expertise: 'Owns content calendars, campaign direction, and brand voice consistency across all channels' },
+    { name: 'Silva', role: 'Graphics Designer', expertise: 'Designs visual assets, branded creatives, and campaign graphics that make every post clear, polished, and on-brand.' },
+    { name: 'Olamide Olayemi', role: 'Web and Software Engineer', expertise: 'Builds and maintains the web and software systems that support campaign execution, reporting workflows, and team productivity.' }
   ];
 
   return (

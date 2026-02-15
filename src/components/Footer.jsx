@@ -1,4 +1,3 @@
-import { Sparkles } from 'lucide-react';
 // Footer Component
 const Footer = ({ setCurrentPage }) => {
   return (
@@ -8,8 +7,8 @@ const Footer = ({ setCurrentPage }) => {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-violet-600 rounded-lg flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
+                <img src="/logos/poleon-1.png" alt="Poleon logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
                 POLEON
@@ -35,7 +34,7 @@ const Footer = ({ setCurrentPage }) => {
           <div>
             <h3 className="text-white font-bold mb-6">Company</h3>
             <div className="space-y-3">
-              {['About', 'Services', 'Portfolio', 'Blog'].map((item) => (
+              {['About', 'Services', 'Portfolio', 'Blog', 'Team', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => setCurrentPage(item.toLowerCase())}
@@ -62,9 +61,9 @@ const Footer = ({ setCurrentPage }) => {
           <div>
             <h3 className="text-white font-bold mb-6">Contact</h3>
             <div className="space-y-3 text-gray-400">
-              <p>hello@poleon.digital</p>
-              <p>+1 (555) 123-4567</p>
-              <p>San Francisco, CA</p>
+              <p>anthonyabu35@gmail.com</p>
+              <p>+234 902 418 2998</p>
+              <p>Lagos, NG</p>
             </div>
           </div>
         </div>
