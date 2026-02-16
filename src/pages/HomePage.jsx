@@ -195,7 +195,7 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* Services Overview */}
-      <section className="relative py-25 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
+      <section className="relative py-16 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">What We Do</h2>
@@ -230,7 +230,7 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* Process Section */}
-      <section className="relative py-25 md:py-32">
+      <section className="relative py-16 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -378,7 +378,7 @@ const HomePage = ({ onNavigate }) => {
       </section> */}
 
       {/* Analytics Section */}
-      <section className="relative py-25 md:py-32">
+      <section className="relative py-16 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-gradient-to-br from-cyan-950/30 to-violet-950/30 backdrop-blur-sm border border-cyan-500/20 rounded-3xl p-12">
             <div className="text-center mb-12">
@@ -421,7 +421,7 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* Testimonials */}
-      <section className="relative py-25 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
+      <section className="relative py-16 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -460,7 +460,7 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-25 md:py-32">
+      <section className="relative py-16 md:py-32">
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative bg-gradient-to-br from-cyan-600 to-violet-700 rounded-3xl p-16 overflow-hidden">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
