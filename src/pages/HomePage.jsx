@@ -150,7 +150,7 @@ const HomePage = ({ onNavigate }) => {
               </span>
             </div>
 
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
                 Your Growth.
               </span>
@@ -198,7 +198,7 @@ const HomePage = ({ onNavigate }) => {
       <section className="relative py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">What We Do</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">What We Do</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Comprehensive digital solutions designed for exponential growth
             </p>
@@ -233,7 +233,7 @@ const HomePage = ({ onNavigate }) => {
       <section className="relative py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               How We Help You Grow
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -267,7 +267,7 @@ const HomePage = ({ onNavigate }) => {
       <section className="relative py-16">
         <div className="max-w-5xl mx-auto px-6">
           <div className="bg-gradient-to-br from-cyan-950/40 to-violet-950/40 border border-white/10 rounded-3xl p-10">
-            <h2 className="text-4xl font-bold text-white mb-5">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
               What working with us feels like
             </h2>
             <p className="text-cyan-300 mb-4">
@@ -382,7 +382,7 @@ const HomePage = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-gradient-to-br from-cyan-950/30 to-violet-950/30 backdrop-blur-sm border border-cyan-500/20 rounded-3xl p-12">
             <div className="text-center mb-12">
-              <h2 className="text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                 Driven By Data
               </h2>
               <p className="text-xl text-gray-400">
@@ -392,25 +392,25 @@ const HomePage = ({ onNavigate }) => {
 
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-6xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
+                <div className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
                   <AnimatedCounter end={10} suffix="+" />
                 </div>
                 <p className="text-gray-400 text-lg">Clients Served</p>
               </div>
               <div className="text-center">
-                <div className="text-6xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
+                <div className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
                   <AnimatedCounter end={287} suffix="%" />
                 </div>
                 <p className="text-gray-400 text-lg">Avg. Growth Rate</p>
               </div>
               <div className="text-center">
-                <div className="text-6xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
+                <div className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
                   <AnimatedCounter end={10} suffix="M+" />
                 </div>
                 <p className="text-gray-400 text-lg">Total Reach</p>
               </div>
               <div className="text-center">
-                <div className="text-6xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
+                <div className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-3">
                   <AnimatedCounter end={98} suffix="%" />
                 </div>
                 <p className="text-gray-400 text-lg">Client Retention</p>
