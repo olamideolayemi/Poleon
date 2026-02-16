@@ -5,6 +5,8 @@ import GridOverlay from '../components/GridOverlay';
 // Portfolio Page
 const PortfolioPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const heroBackgroundImage =
+    '/images/photo-1460925895917-afdab827c52f.jpeg';
 
   const categories = ['All', 'E-commerce', 'SaaS', 'Finance', 'Health', 'Technology'];
 
@@ -67,7 +69,17 @@ const PortfolioPage = () => {
     <div className="relative pt-32">
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroBackgroundImage}
+            alt="Marketing performance results dashboard"
+            className="w-full h-full object-cover opacity-25"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#070b22]/95 via-[#0a0e27]/85 to-[#080d24]/95" />
+        </div>
         <FloatingOrbs />
+        <GridOverlay />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">

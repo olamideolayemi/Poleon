@@ -61,8 +61,8 @@ const Footer = ({ setCurrentPage }) => {
           <div>
             <h3 className="text-white font-bold mb-6">Contact</h3>
             <div className="space-y-3 text-gray-400">
-              <p>anthonyabu35@gmail.com</p>
-              <p>+234 902 418 2998</p>
+              <p>poleonconsult@gmail.com</p>
+              <p>+234 902 418 2998 <br /> +234 807 603 1228</p>
               <p>Lagos, NG</p>
             </div>
           </div>

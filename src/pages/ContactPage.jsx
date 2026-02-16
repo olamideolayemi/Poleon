@@ -27,6 +27,9 @@ const faqItems = [
 ];
 
 const ContactPage = () => {
+  const heroBackgroundImage =
+    '/images/photo-1521737604893-d14cc237f11d.jpeg';
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,7 +52,17 @@ const ContactPage = () => {
     <div className="relative pt-32">
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroBackgroundImage}
+            alt="Marketing client meeting and consultation"
+            className="w-full h-full object-cover opacity-25"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#070b22]/95 via-[#0a0e27]/85 to-[#080d24]/95" />
+        </div>
         <FloatingOrbs />
+        <GridOverlay />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6">
             Let's Build
@@ -85,7 +98,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Email</h3>
-                    <p className="text-gray-400">anthonyabu35@gmail.com</p>
+                    <p className="text-gray-400">poleonconsult@gmail.com</p>
                   </div>
                 </div>
 
@@ -95,7 +108,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Phone</h3>
-                    <p className="text-gray-400">+234 902 418 2998</p>
+                    <p className="text-gray-400">+234 902 418 2998 <br /> +234 807 603 1228 </p>
                   </div>
                 </div>
 

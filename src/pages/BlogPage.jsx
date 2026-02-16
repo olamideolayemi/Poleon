@@ -3,6 +3,8 @@ import FloatingOrbs from '../components/FloatingOrbs';
 import { blogPosts } from '../data/blogPosts';
 
 const BlogPage = ({ onOpenPost }) => {
+  const heroBackgroundImage =
+    '/images/photo-1454165804606-c3d57bc86b40.jpeg';
   const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
   const featuredPost =
     sortedPosts.find((post) => post.slug !== 'home-office-case-study') ?? sortedPosts[0];
@@ -11,6 +13,15 @@ const BlogPage = ({ onOpenPost }) => {
   return (
     <div className="relative pt-32">
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroBackgroundImage}
+            alt="Marketing content strategy workspace"
+            className="w-full h-full object-cover opacity-25"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#070b22]/95 via-[#0a0e27]/85 to-[#080d24]/95" />
+        </div>
         <FloatingOrbs />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6">

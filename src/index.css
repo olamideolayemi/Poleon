@@ -78,6 +78,15 @@ h6 {
   }
 }
 
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 80px 80px, 80px 80px;
+  }
+}
+
 .animate-float {
   animation: float 20s ease-in-out infinite;
 }
@@ -92,6 +101,10 @@ h6 {
 
 .animate-fade-in {
   animation: fade-in 1s ease-out;
+}
+
+.animate-grid-drift {
+  animation: grid-drift 14s linear infinite;
 }
 
 select option {

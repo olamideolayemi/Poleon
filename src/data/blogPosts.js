@@ -193,22 +193,6 @@ export const blogPosts = [
     ]
   },
   {
-    slug: 'ai-assisted-content-new-normal',
-    category: 'Content',
-    title: 'AI-Assisted Content: The New Normal',
-    excerpt:
-      'How to leverage AI tools while maintaining authentic brand voice and creativity.',
-    date: 'Jan 28, 2026',
-    readTime: '5 min read',
-    emoji: '🤖',
-    content: [
-      'AI can accelerate ideation and production, but it should not replace strategic thinking. The strongest teams use AI for speed and humans for judgment.',
-      'Use AI to draft, structure, and test variants. Then apply brand voice, market context, and customer understanding before publishing.',
-      'Without editorial controls, AI content becomes generic quickly. Build review standards for tone, clarity, relevance, and factual alignment.',
-      'The goal is not automation for its own sake. The goal is better content systems that are faster, clearer, and still distinctly your brand.'
-    ]
-  },
-  {
     slug: 'priceslash-case-study',
     category: 'Case Study',
     title: 'Case Study: Building Priceslash from Zero Online Presence',
@@ -318,19 +302,4 @@ export const blogPosts = [
       'Since July 2025, Priceslash has grown into a stronger online brand with consistent content performance and improving sales outcomes.'
     ]
   },
-  {
-    slug: 'how-we-scaled-techmart',
-    category: 'Case Study',
-    title: 'How We 3Xed Revenue for TechMart',
-    excerpt: 'A deep dive into our e-commerce transformation strategy and execution.',
-    date: 'Jan 25, 2026',
-    readTime: '10 min read',
-    emoji: '💡',
-    content: [
-      'TechMart came in with fragmented channels, inconsistent messaging, and low conversion efficiency. The first move was aligning positioning and customer journey flow.',
-      'We rebuilt campaign structure around purchase intent, improved landing clarity, and introduced a weekly optimization loop across ads, content, and offer design.',
-      'Performance gains came from compounding improvements, not one campaign. Better targeting, better message-market fit, and faster iteration created momentum.',
-      'Within the engagement window, revenue reached 3X baseline. More importantly, the business now had a repeatable system for sustainable growth.'
-    ]
-  }
 ];

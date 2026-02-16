@@ -55,6 +55,9 @@ const renderRichBlock = (block, index, slug) => {
 };
 
 const BlogDetailPage = ({ post, allPosts, onOpenPost, onBack }) => {
+  const heroBackgroundImage =
+    '/images/photo-1517048676732-d65bc937f952.jpeg';
+
   if (!post) {
     return (
       <div className="relative pt-32">
@@ -85,6 +88,15 @@ const BlogDetailPage = ({ post, allPosts, onOpenPost, onBack }) => {
   return (
     <div className="relative pt-32">
       <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroBackgroundImage}
+            alt="Marketing strategy discussion"
+            className="w-full h-full object-cover opacity-20"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#070b22]/95 via-[#0a0e27]/90 to-[#080d24]/95" />
+        </div>
         <FloatingOrbs />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
