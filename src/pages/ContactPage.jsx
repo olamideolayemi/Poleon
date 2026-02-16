@@ -51,7 +51,7 @@ const ContactPage = () => {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <FloatingOrbs />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6">
             Let's Build
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">

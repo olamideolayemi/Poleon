@@ -3,15 +3,17 @@ import FloatingOrbs from '../components/FloatingOrbs';
 import { blogPosts } from '../data/blogPosts';
 
 const BlogPage = ({ onOpenPost }) => {
-  const featuredPost = blogPosts[0];
-  const listPosts = blogPosts.slice(1);
+  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const featuredPost =
+    sortedPosts.find((post) => post.slug !== 'home-office-case-study') ?? sortedPosts[0];
+  const listPosts = sortedPosts.filter((post) => post.slug !== featuredPost?.slug);
 
   return (
     <div className="relative pt-32">
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden">
         <FloatingOrbs />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
               Insights & Ideas
             </span>
@@ -34,7 +36,7 @@ const BlogPage = ({ onOpenPost }) => {
               <Sparkles className="w-4 h-4 text-cyan-300" />
               <span className="text-cyan-300 text-sm">Featured Post</span>
             </div>
-            <h2 className="text-4xl font-bold text-white mb-4">{featuredPost.title}</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">{featuredPost.title}</h2>
             <p className="text-gray-300 text-lg mb-4 max-w-4xl">{featuredPost.excerpt}</p>
             <p className="text-gray-400 text-sm">{featuredPost.date} • {featuredPost.readTime}</p>
           </div>

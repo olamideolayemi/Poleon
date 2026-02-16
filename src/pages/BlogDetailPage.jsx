@@ -1,13 +1,66 @@
 import { ArrowLeft } from 'lucide-react';
 import FloatingOrbs from '../components/FloatingOrbs';
 
+const renderRichBlock = (block, index, slug) => {
+  const key = `${slug}-${block.type}-${index}`;
+
+  if (block.type === 'heading') {
+    return (
+      <h2 key={key} className="text-2xl md:text-3xl font-bold text-white pt-3">
+        {block.text}
+      </h2>
+    );
+  }
+
+  if (block.type === 'subheading') {
+    return (
+      <h3 key={key} className="text-xl md:text-2xl font-semibold text-white pt-2">
+        {block.text}
+      </h3>
+    );
+  }
+
+  if (block.type === 'quote') {
+    return (
+      <blockquote
+        key={key}
+        className="border-l-4 border-cyan-400/60 pl-5 py-2 text-gray-100 italic bg-white/[0.02] rounded-r-lg"
+      >
+        {block.text}
+      </blockquote>
+    );
+  }
+
+  if (block.type === 'list') {
+    if (block.ordered) {
+      return (
+        <ol key={key} className="list-decimal pl-6 space-y-3 marker:text-cyan-300">
+          {block.items?.map((item, itemIndex) => (
+            <li key={`${key}-${itemIndex}`}>{item}</li>
+          ))}
+        </ol>
+      );
+    }
+
+    return (
+      <ul key={key} className="list-disc pl-6 space-y-3 marker:text-cyan-300">
+        {block.items?.map((item, itemIndex) => (
+          <li key={`${key}-${itemIndex}`}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  return <p key={key}>{block.text}</p>;
+};
+
 const BlogDetailPage = ({ post, allPosts, onOpenPost, onBack }) => {
   if (!post) {
     return (
       <div className="relative pt-32">
         <section className="relative min-h-[60vh] flex items-center justify-center">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">Post not found</h1>
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-4">Post not found</h1>
             <button
               onClick={onBack}
               className="px-6 py-3 border border-white/20 rounded-lg text-white hover:border-cyan-400"
@@ -25,7 +78,7 @@ const BlogDetailPage = ({ post, allPosts, onOpenPost, onBack }) => {
     .sort((a, b) => {
       if (a.category === post.category && b.category !== post.category) return -1;
       if (a.category !== post.category && b.category === post.category) return 1;
-      return 0;
+      return new Date(b.date) - new Date(a.date);
     })
     .slice(0, 8);
 
@@ -52,9 +105,9 @@ const BlogDetailPage = ({ post, allPosts, onOpenPost, onBack }) => {
               <p className="text-gray-400 mb-10">{post.date} • {post.readTime}</p>
 
               <div className="space-y-6 text-gray-200 text-lg leading-relaxed">
-                {post.content.map((paragraph, index) => (
-                  <p key={`${post.slug}-${index}`}>{paragraph}</p>
-                ))}
+                {post.richContent
+                  ? post.richContent.map((block, index) => renderRichBlock(block, index, post.slug))
+                  : post.content.map((paragraph, index) => <p key={`${post.slug}-${index}`}>{paragraph}</p>)}
               </div>
             </article>
 

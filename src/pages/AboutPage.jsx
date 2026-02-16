@@ -31,7 +31,7 @@ const AboutPage = () => {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <FloatingOrbs />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6">
             Architects of
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
@@ -49,7 +49,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-5xl font-bold text-white mb-6">Our Mission</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Mission</h2>
               <p className="text-xl text-gray-300 leading-relaxed mb-6">
                 To empower businesses with strategic digital solutions that drive exponential growth and lasting market impact.
               </p>
@@ -78,7 +78,7 @@ const AboutPage = () => {
       {/* Timeline */}
       <section className="relative py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-5xl font-bold text-white mb-16 text-center">Our Journey</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">Our Journey</h2>
           <div className="relative">
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-violet-600 hidden md:block" />
             {timeline.map((item, index) => (
@@ -104,7 +104,7 @@ const AboutPage = () => {
       <section className="relative py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">Leadership Team</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Leadership Team</h2>
             <p className="text-xl text-gray-400">
               Expert strategists driving innovation
             </p>

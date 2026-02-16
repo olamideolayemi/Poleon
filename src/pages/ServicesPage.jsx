@@ -57,7 +57,7 @@ const ServicesPage = () => {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <FloatingOrbs />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
               Strategic Services
             </span>
@@ -88,7 +88,7 @@ const ServicesPage = () => {
                       <div className="text-white">{service.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-3xl font-bold text-white mb-2">{service.title}</h3>
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{service.title}</h3>
                       <p className="text-gray-400">{service.description}</p>
                     </div>
                   </div>
@@ -127,7 +127,7 @@ const ServicesPage = () => {
       <section className="relative py-32 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">Our Approach</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Approach</h2>
             <p className="text-xl text-gray-400">
               A proven methodology for digital success
             </p>
