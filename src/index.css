@@ -87,6 +87,16 @@ h6 {
   }
 }
 
+@keyframes hero-vertical-drift {
+  0%,
+  100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
 .animate-float {
   animation: float 20s ease-in-out infinite;
 }
@@ -105,6 +115,42 @@ h6 {
 
 .animate-grid-drift {
   animation: grid-drift 14s linear infinite;
+}
+
+.animate-hero-drift {
+  animation: hero-vertical-drift 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hero-drift-alt {
+  animation: hero-vertical-drift 7.5s ease-in-out 0.7s infinite;
+  will-change: transform;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: blur(6px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease,
+    filter 700ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }
 
 select option {

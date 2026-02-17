@@ -1,3 +1,5 @@
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -10,9 +12,38 @@ import {
 } from "lucide-react";
 import AnimatedCounter from "../components/AnimatedCounter";
 import FloatingOrbs from "../components/FloatingOrbs";
-import GridOverlay from "../components/GridOverlay";
+import GridOverlay from "../components/GridOverlay"
+import WorkShowcase from "../components/HorizontalScroll";
+
 // Homepage
 const HomePage = ({ onNavigate }) => {
+  const howWeHelpRef = useRef(null);
+
+  useEffect(() => {
+    const section = howWeHelpRef.current;
+    if (!section) return undefined;
+
+    const revealItems = section.querySelectorAll("[data-scroll-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   const services = [
     {
       icon: <Globe className="w-8 h-8" />,
@@ -174,31 +205,6 @@ const HomePage = ({ onNavigate }) => {
     },
   ];
 
-  // const portfolioItems = [
-  //   {
-  //     name: "Home & Office",
-  //     logo: "/logos/home-office.jpeg",
-  //     logoFallback: "H&O",
-  //     challenge:
-  //       "Furniture content looked generic and did not communicate trust, practicality, or authority.",
-  //     action:
-  //       "We rebuilt visual language, tightened digital operations, and published authentic, informative, consistent content.",
-  //     result:
-  //       "Result: stronger engagement, hundreds of new interested customers, and clearer market authority since July 2025.",
-  //   },
-  //   {
-  //     name: "Priceslash",
-  //     logo: "/logos/priceslash.jpeg",
-  //     logoFallback: "PS",
-  //     challenge:
-  //       "No online presence and low awareness for fast-moving consumer products.",
-  //     action:
-  //       "We built the brand online from scratch, tested formats, and scaled educational comparison content and reels.",
-  //     result:
-  //       "increased awareness, engagement, and sales through strategic posting and content planning.",
-  //   },
-  // ];
-
   const testimonials = [
     {
       name: "Sarah Chen",
@@ -226,7 +232,7 @@ const HomePage = ({ onNavigate }) => {
   const heroSpotlight = {
     title: "Campaign Planning Session",
     image:
-      "/images/photo-1552664730-d307ca884978.jpeg",
+      "/images/isometric_people-1.png",
   };
   const heroBackgroundImage =
     "/images/photo-1432888622747-4eb9a8efeb07.jpeg";
@@ -261,6 +267,33 @@ const HomePage = ({ onNavigate }) => {
       className: "bottom-10 -left-6 animate-float-slower",
     },
     { label: "Growth", icon: TrendingUp, className: "-bottom-4 right-10 animate-float" },
+  ];
+
+  const previousWork = [
+    {
+      id: "home-office",
+      name: "Home & Office",
+      label: "Furniture Retail",
+      image: "/logos/home-office.jpeg",
+      summary:
+        "Reframed brand storytelling and product education to build trust and drive consistent purchase intent."
+    },
+    {
+      id: "priceslash",
+      name: "Priceslash",
+      label: "Consumer Products",
+      image: "/logos/priceslash.jpg",
+      summary:
+        "Built digital presence from zero and scaled practical social formats for awareness and conversion."
+    },
+    {
+      id: "whitecrest",
+      name: "Whitecrest Factor",
+      label: "Performance Ops",
+      image: "/logos/whitecrest-factor.jpg",
+      summary:
+        "Unified reporting and execution rhythms so strategy and delivery moved with the same cadence."
+    },
   ];
 
   return (
@@ -319,14 +352,14 @@ const HomePage = ({ onNavigate }) => {
             </div>
 
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl shadow-cyan-950/40">
+              <div className="relative overflow-hidden ">
                 <img
                   src={heroSpotlight.image}
                   alt={heroSpotlight.title}
                   className="w-full h-[420px] md:h-[520px] object-cover"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/25 to-transparent" />
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-transparent via-slate-900/25 to-transparent" /> */}
 
                 {/* <div className="absolute bottom-5 left-5 right-5">
                   <p className="text-white text-lg font-semibold">
@@ -339,14 +372,14 @@ const HomePage = ({ onNavigate }) => {
                 </div> */}
               </div>
 
-              <div className="absolute bottom-32 -left-16 px-4 py-3 rounded-xl border border-cyan-400/30 bg-slate-950/80 backdrop-blur-md">
+              <div className="absolute bottom-32 -left-16 px-4 py-3 rounded-xl border border-cyan-400/30 bg-slate-950/80 backdrop-blur-md animate-hero-drift">
                 <p className="text-cyan-300 text-xs uppercase tracking-wider">
                   Average ROI Lift
                 </p>
                 <p className="text-white text-xl font-bold">+287%</p>
               </div>
 
-              <div className="absolute top-16 -right-4 px-4 py-3 rounded-xl border border-violet-400/30 bg-slate-950/80 backdrop-blur-md">
+              <div className="absolute top-16 -right-4 px-4 py-3 rounded-xl border border-violet-400/30 bg-slate-950/80 backdrop-blur-md animate-hero-drift-alt">
                 <p className="text-violet-200 text-xs uppercase tracking-wider">
                   Campaign Focus
                 </p>
@@ -367,7 +400,7 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* How We Help You Grow Section */}
-      <section className="relative py-16 md:py-32 overflow-hidden">
+      <section ref={howWeHelpRef} className="relative py-16 md:py-32 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-30 animate-grid-drift"
@@ -382,7 +415,7 @@ const HomePage = ({ onNavigate }) => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-reveal" data-scroll-reveal>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               How We Help You Grow
             </h2>
@@ -398,7 +431,9 @@ const HomePage = ({ onNavigate }) => {
             {process.map((item, index) => (
               <div
                 key={index}
-                className={`flex items-center mb-10 ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+                className={`flex items-center mb-10 scroll-reveal ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+                data-scroll-reveal
+                style={{ "--reveal-delay": `${index * 120}ms` }}
               >
                 <div
                   className={`w-full lg:flex-1 ${index % 2 === 0 ? "lg:pr-12 lg:text-right" : "lg:pl-12"}`}
@@ -433,48 +468,6 @@ const HomePage = ({ onNavigate }) => {
           </div>
         </div>
       </section>
-
-      {/* Visual Showcase */}
-      {/* <section className="relative py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Inside the POLEON Workflow
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-              Real moments from strategy, production, and execution that define
-              how we help brands scale.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {visualShowcase.map((item) => (
-              <article
-                key={item.title}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm"
-              >
-                <div className="h-72 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
-                <div className="absolute bottom-0 p-6">
-                  <h3 className="text-white text-2xl font-bold mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-200 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* Services Overview */}
       <section className="relative py-16 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
@@ -516,6 +509,8 @@ const HomePage = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+
+      <WorkShowcase previousWork={previousWork} />
 
       <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -560,89 +555,6 @@ const HomePage = ({ onNavigate }) => {
           </div>
         </div>
       </section>
-
-      {/* Portfolio Highlights */}
-      {/* <section className="relative py-32 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">Case Studies</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              We’ve partnered with many brands across different industries. Here
-              are a couple of examples that showcase our approach, process, and
-              results.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {portfolioItems.map((item, index) => (
-              <div
-                key={index}
-                className="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500 cursor-pointer"
-              >
-                <div className="p-8">
-                  <div className="mb-6">
-                    <div className="h-16 w-44 rounded-lg bg-black/20 border border-white/10 overflow-hidden flex items-center justify-center">
-                      <img
-                        src={item.logo}
-                        alt={`${item.name} logo`}
-                        className="h-full w-full object-contain"
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                          const fallback = e.currentTarget.nextElementSibling;
-                          if (fallback) fallback.classList.remove("hidden");
-                        }}
-                      />
-                      <span className="hidden text-white font-bold tracking-wide">
-                        {item.logoFallback}
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                      {item.name}
-                    </h3>
-                  </div>
-                  <div className="mb-8">
-                    <span
-                      text-gray-300
-                      className="text-sm uppercase tracking-wide"
-                    >
-                      Challenge
-                    </span>
-                    <p className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
-                      <span>Challenge</span>
-                      {item.challenge}
-                    </p>
-                  </div>
-                  <div className="mb-8">
-                    <span
-                      text-gray-300
-                      className="text-sm uppercase tracking-wide"
-                    >
-                      Action
-                    </span>
-                    <p className="text-1xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
-                      {item.action}
-                    </p>
-                  </div>
-                  <div className="mb-8">
-                    <span
-                      text-gray-300
-                      className="text-sm uppercase tracking-wide"
-                    >
-                      Result
-                    </span>
-                    <p className="text-1xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
-                      {item.result}
-                    </p>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* Analytics Section */}
       <section className="relative py-16 md:py-32">
