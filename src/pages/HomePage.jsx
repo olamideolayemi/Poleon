@@ -362,7 +362,7 @@ const HomePage = ({ onNavigate }) => {
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent animate-hero-title-flow">
                   We build digital systems that meet your customers at every
                   touchpoint.
@@ -561,7 +561,10 @@ const HomePage = ({ onNavigate }) => {
         </div>
       </section>
 
-      <WorkShowcase previousWork={previousWork} />
+      <WorkShowcase
+        previousWork={previousWork}
+        onViewPortfolio={() => onNavigate?.("portfolio")}
+      />
 
       {/* How We Work Together Section */}
       <section className="relative py-32">

@@ -106,6 +106,15 @@ h6 {
   }
 }
 
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
 .animate-float {
   animation: float 20s ease-in-out infinite;
 }
@@ -146,6 +155,20 @@ h6 {
   animation: hero-title-flow 7s linear infinite;
 }
 
+.loading-gradient {
+  /* background-size: 180% 180%; */
+  /* animation: gradient-flow 4.8s linear infinite; */
+}
+
+.loading-gradient {
+  /* background: linear-gradient(90deg, #0539f6, #a464e4, #2c1c2b); */
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-flow 4.2s ease-in-out infinite;
+}
+
 .scroll-reveal {
   opacity: 0;
   transform: translateY(36px);
@@ -183,6 +206,10 @@ h6 {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-hero-title-flow {
+    animation: none;
+  }
+
+  .loading-gradient {
     animation: none;
   }
 

@@ -22,7 +22,7 @@ const Navigation = ({ currentPage, setCurrentPage, isScrolled }) => {
           <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
             <img src="/logos/poleon-1.png" alt="Poleon logo" className="w-full h-full object-contain" />
           </div>
-          <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
+          <span className="loading-gradient text-2xl font-bold bg-gradient-to-r from-cyan-400 via-white to-violet-400 bg-clip-text text-transparent">
             POLEON
           </span>
         </div>

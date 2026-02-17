@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-function WorkShowcase({ previousWork }) {
+function WorkShowcase({ previousWork, onViewPortfolio }) {
   const containerRef = useRef(null);
   const viewportRef = useRef(null);
   const rowRef = useRef(null);
@@ -77,7 +77,7 @@ function WorkShowcase({ previousWork }) {
   const rawX = useTransform(scrollYProgress, [0, 1], [centerOffset, -travel]);
   const x = useSpring(rawX, { stiffness: 140, damping: 90, mass: 2.7 });
 
-  const SPEED = 1.2;
+  const SPEED = 1.6;
   const containerHeight = useMemo(
     () => `calc(50vh + ${travel * SPEED}px)`,
     [travel],
@@ -90,15 +90,23 @@ function WorkShowcase({ previousWork }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.2),transparent_40%)]" />
 
         <div className="relative z-10 px-6">
-          <div className="max-w-3xl">
-            <p className="text-cyan-300 uppercase text-xs tracking-[0.25em] mb-4">
-              Previous Work
-            </p>
-            <h2 className="text-3xl font-bold text-white mb-4">What We Have Done</h2>
-            <p className="text-gray-300 text-base">
-              Swipe horizontally to explore selected client outcomes and
-              delivery systems we have built.
-            </p>
+          <div className="flex items-start justify-between gap-4">
+            <div className="max-w-3xl">
+              <p className="text-cyan-300 uppercase text-xs tracking-[0.25em] mb-4">
+                Previous Work
+              </p>
+              <h2 className="text-3xl font-bold text-white mb-4">What We Have Done</h2>
+              <p className="text-gray-300 text-base">
+                Swipe horizontally to explore selected client outcomes and
+                delivery systems we have built.
+              </p>
+            </div>
+            <button
+              onClick={() => onViewPortfolio?.()}
+              className="shrink-0 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-semibold text-sm"
+            >
+              View More
+            </button>
           </div>
         </div>
 
@@ -127,6 +135,7 @@ function WorkShowcase({ previousWork }) {
             ))}
           </div>
         </div>
+
       </section>
     );
   }
@@ -142,17 +151,25 @@ function WorkShowcase({ previousWork }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.2),transparent_40%)]" />
 
         <div className="relative z-10 pt-16 md:pt-24 px-6 md:px-10">
-          <div className="max-w-3xl">
-            <p className="text-cyan-300 uppercase text-xs tracking-[0.25em] mb-4">
-              Previous Work
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              What We Have Done
-            </h2>
-            <p className="text-gray-300 text-base md:text-lg">
-              Scroll down to explore selected client outcomes and delivery
-              systems we have built.
-            </p>
+          <div className="flex items-start justify-between gap-6">
+            <div className="max-w-3xl">
+              <p className="text-cyan-300 uppercase text-xs tracking-[0.25em] mb-4">
+                Previous Work
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                What We Have Done
+              </h2>
+              <p className="text-gray-300 text-base md:text-lg">
+                Scroll down to explore selected client outcomes and delivery
+                systems we have built.
+              </p>
+            </div>
+            <button
+              onClick={() => onViewPortfolio?.()}
+              className="shrink-0 mt-1 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-semibold hover:opacity-95 transition-opacity"
+            >
+              View More Projects
+            </button>
           </div>
         </div>
 
@@ -194,6 +211,7 @@ function WorkShowcase({ previousWork }) {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
