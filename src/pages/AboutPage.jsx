@@ -3,8 +3,7 @@ import FloatingOrbs from "../components/FloatingOrbs";
 import GridOverlay from "../components/GridOverlay";
 // About Page
 const AboutPage = () => {
-  const heroBackgroundImage =
-    "/images/photo-1552664730-d307ca884978.jpeg";
+  const heroBackgroundImage = "/images/photo-1552664730-d307ca884978.jpeg";
 
   const values = [
     {
@@ -21,34 +20,34 @@ const AboutPage = () => {
     },
   ];
 
-  const timeline = [
-    {
-      year: "2019",
-      event: "Founded",
-      description:
-        "POLEON launched with a vision to revolutionize digital strategy",
-    },
-    {
-      year: "2020",
-      event: "First 5 Clients",
-      description: "Rapidly grew client base with proven results",
-    },
-    {
-      year: "2022",
-      event: "Series A Funding",
-      description: "Secured investment to scale operations",
-    },
-    {
-      year: "2024",
-      event: "Global Expansion",
-      description: "Opened offices in 5 countries",
-    },
-    {
-      year: "2026",
-      event: "Industry Leader",
-      description: "Recognized as top digital strategy firm",
-    },
-  ];
+  // const timeline = [
+  //   {
+  //     year: "2019",
+  //     event: "Founded",
+  //     description:
+  //       "POLEON launched with a vision to revolutionize digital strategy",
+  //   },
+  //   {
+  //     year: "2020",
+  //     event: "First 5 Clients",
+  //     description: "Rapidly grew client base with proven results",
+  //   },
+  //   {
+  //     year: "2022",
+  //     event: "Series A Funding",
+  //     description: "Secured investment to scale operations",
+  //   },
+  //   {
+  //     year: "2024",
+  //     event: "Global Expansion",
+  //     description: "Opened offices in 5 countries",
+  //   },
+  //   {
+  //     year: "2026",
+  //     event: "Industry Leader",
+  //     description: "Recognized as top digital strategy firm",
+  //   },
+  // ];
 
   const team = [
     {
@@ -143,6 +142,15 @@ const AboutPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+        <div className="mt-16 md:mt-36">
+          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <p className="text-xl text-gray-300 leading-relaxed">
+              We’re here to help you grow with intention and confidence. Let’s
+              create digital systems and designs that work for your business —
+              together.
+            </p>
           </div>
         </div>
       </section>

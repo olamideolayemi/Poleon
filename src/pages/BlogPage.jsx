@@ -1,14 +1,18 @@
 import { Sparkles } from 'lucide-react';
 import FloatingOrbs from '../components/FloatingOrbs';
-import { blogPosts } from '../data/blogPosts';
+import { blogPosts as localBlogPosts } from '../data/blogPosts';
 
-const BlogPage = ({ onOpenPost }) => {
+const BlogPage = ({ posts = localBlogPosts, onOpenPost }) => {
   const heroBackgroundImage =
     '/images/photo-1454165804606-c3d57bc86b40.jpeg';
-  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
-  const featuredPost =
-    sortedPosts.find((post) => post.slug !== 'home-office-case-study') ?? sortedPosts[0];
+  const nonCaseStudyPosts = posts.filter((post) => post.category !== 'Case Study');
+  const sortedPosts = [...nonCaseStudyPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const featuredPost = sortedPosts[0];
   const listPosts = sortedPosts.filter((post) => post.slug !== featuredPost?.slug);
+
+  if (!featuredPost) {
+    return null;
+  }
 
   return (
     <div className="relative pt-32">

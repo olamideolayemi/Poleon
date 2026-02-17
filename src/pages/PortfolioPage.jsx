@@ -1,69 +1,9 @@
-import { Filter, Sparkles } from 'lucide-react';
-import { useState } from 'react';
-import FloatingOrbs from '../components/FloatingOrbs';
-import GridOverlay from '../components/GridOverlay';
+import FloatingOrbs from "../components/FloatingOrbs";
+import GridOverlay from "../components/GridOverlay";
+import { portfolio } from "../data/portfolio";
 // Portfolio Page
-const PortfolioPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const heroBackgroundImage =
-    '/images/photo-1460925895917-afdab827c52f.jpeg';
-
-  const categories = ['All', 'E-commerce', 'SaaS', 'Finance', 'Health', 'Technology'];
-
-  const projects = [
-    {
-      category: 'E-commerce',
-      title: 'TechMart Digital Transformation',
-      description: 'Complete digital overhaul leading to 3X revenue growth',
-      results: { revenue: '+287%', users: '150K', engagement: '+165%' },
-      emoji: '🛍️',
-      tags: ['SEO', 'Social Media', 'Analytics']
-    },
-    {
-      category: 'SaaS',
-      title: 'CloudSync Product Launch',
-      description: 'Strategic launch campaign that acquired 50K users in 90 days',
-      results: { users: '50K', retention: '89%', mrr: '+$250K' },
-      emoji: '☁️',
-      tags: ['Content Strategy', 'Paid Ads', 'Community']
-    },
-    {
-      category: 'Finance',
-      title: 'FinPro Complete Rebrand',
-      description: 'Brand identity refresh with massive engagement boost',
-      results: { engagement: '+165%', reach: '2M', conversion: '+45%' },
-      emoji: '💼',
-      tags: ['Branding', 'Social Growth', 'PR']
-    },
-    {
-      category: 'Health',
-      title: 'WellnessHub Scale',
-      description: 'Multi-channel growth strategy reaching 2M people',
-      results: { reach: '2M', leads: '25K', roi: '12X' },
-      emoji: '🏥',
-      tags: ['Content', 'Influencer', 'SEO']
-    },
-    {
-      category: 'Technology',
-      title: 'DevTools Market Entry',
-      description: 'B2B SaaS launch with developer-focused strategy',
-      results: { signups: '30K', arr: '$1.2M', churn: '3%' },
-      emoji: '⚙️',
-      tags: ['Developer Marketing', 'Content', 'Community']
-    },
-    {
-      category: 'E-commerce',
-      title: 'FashionHub Relaunch',
-      description: 'Social-first strategy driving luxury fashion sales',
-      results: { revenue: '+420%', followers: '200K', roas: '8.5X' },
-      emoji: '👗',
-      tags: ['Social Commerce', 'Influencer', 'Paid Social']
-    }
-  ];
-
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(p => p.category === selectedCategory);
+const PortfolioPage = ({ projects = portfolio, onOpenProject }) => {
+  const heroBackgroundImage = "/images/photo-1460925895917-afdab827c52f.jpeg";
 
   return (
     <div className="relative pt-32">
@@ -89,76 +29,62 @@ const PortfolioPage = () => {
             That Speak Volumes
           </h1>
           <p className="text-xl text-gray-300 leading-relaxed">
-            Real brands. Real growth. Real impact.
+            We’ve partnered with many brands across different industries. Here
+            are a couple of examples that showcase our approach, process, and
+            results.
           </p>
         </div>
       </section>
 
-      {/* Filter */}
-      <section className="relative py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-cyan-500 to-violet-600 text-white shadow-lg shadow-cyan-500/30'
-                    : 'bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Grid */}
-      <section className="relative pb-32">
+      {/* Portfolio Cards */}
+      <section className="relative py-16 pb-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-6">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={index}
-                className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-500 cursor-pointer hover:scale-105"
+            {projects.map((study) => (
+              <article
+                key={study.slug}
+                className="rounded-3xl border border-white/10 bg-white/5 overflow-hidden"
               >
-                <div className="p-8">
-                  <div className="text-6xl mb-6">{project.emoji}</div>
-                  <span className="inline-block px-3 py-1 bg-cyan-500/20 text-cyan-400 text-sm rounded-full mb-4">
-                    {project.category}
-                  </span>
-                  <h3 className="text-3xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-white/10">
-                    {Object.entries(project.results).map(([key, value]) => (
-                      <div key={key}>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
-                          {value}
-                        </div>
-                        <div className="text-gray-500 text-sm capitalize">{key}</div>
+                <div className="relative h-52 md:h-60">
+                  <img
+                    src={study.heroImage}
+                    alt={`${study.company} project overview`}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-950/35 via-slate-950/55 to-slate-950/90" />
+                  <div className="relative z-10 h-full p-6 md:p-8 flex flex-col justify-end">
+                    <div className="flex items-center gap-4 mb-2">
+                      <div className="w-12 h-12 rounded-xl border border-white/20 bg-white/10 overflow-hidden">
+                        <img
+                          src={study.logo}
+                          alt={`${study.company} logo`}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
                       </div>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-400 text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">
+                          {study.industry}
+                        </p>
+                        <h3 className="text-2xl font-bold text-white">
+                          {study.company}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-gray-200">{study.excerpt}</p>
                   </div>
                 </div>
-              </div>
+
+                <div className="p-6">
+                  <button
+                    onClick={() => onOpenProject?.(study.slug)}
+                    className="w-full px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-semibold hover:opacity-95 transition-opacity"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -166,6 +92,5 @@ const PortfolioPage = () => {
     </div>
   );
 };
-
 
 export default PortfolioPage;

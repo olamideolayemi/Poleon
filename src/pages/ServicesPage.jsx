@@ -9,33 +9,12 @@ const ServicesPage = () => {
     '/images/photo-1460925895917-afdab827c52f.jpeg';
 
   const services = [
-    {
-      title: 'Digital Presence Management',
-      icon: <Globe className="w-10 h-10" />,
-      description: 'Comprehensive online positioning strategy',
-      details: 'We craft and manage your entire digital ecosystem - from website architecture to social platforms, ensuring consistent brand messaging and optimal user experience across all touchpoints.',
-      features: ['Website Strategy', 'SEO Optimization', 'Online Reputation', 'Multi-Platform Integration']
-    },
-    {
-      title: 'Social Media Growth',
-      icon: <TrendingUp className="w-10 h-10" />,
-      description: 'Data-driven community building',
-      details: 'Strategic content creation, audience targeting, and engagement optimization designed to build authentic communities that convert into loyal customers.',
-      features: ['Content Calendar', 'Influencer Partnerships', 'Community Management', 'Paid Social Strategy']
-    },
-    {
+     {
       title: 'Analytics & Optimization',
       icon: <BarChart3 className="w-10 h-10" />,
       description: 'Performance tracking and enhancement',
       details: 'Advanced analytics implementation, custom dashboards, and continuous A/B testing to maximize every aspect of your digital performance.',
       features: ['Custom Analytics', 'Conversion Optimization', 'Performance Tracking', 'Data Visualization']
-    },
-    {
-      title: 'Content Strategy',
-      icon: <MessageSquare className="w-10 h-10" />,
-      description: 'Compelling narratives that convert',
-      details: 'From strategic planning to execution, we develop content frameworks that resonate with your audience and drive measurable business outcomes.',
-      features: ['Content Planning', 'Copywriting', 'Visual Strategy', 'Distribution Channels']
     },
     {
       title: 'Brand Identity',
@@ -45,11 +24,32 @@ const ServicesPage = () => {
       features: ['Brand Guidelines', 'Visual Identity', 'Messaging Framework', 'Style Systems']
     },
     {
+      title: 'Content Strategy',
+      icon: <MessageSquare className="w-10 h-10" />,
+      description: 'Compelling narratives that convert',
+      details: 'From strategic planning to execution, we develop content frameworks that resonate with your audience and drive measurable business outcomes.',
+      features: ['Content Planning', 'Copywriting', 'Visual Strategy', 'Distribution Channels']
+    },
+    {
       title: 'Free Auditing',
       icon: <Users className="w-10 h-10" />,
       description: 'Comprehensive digital performance audit',
       details: 'We run a no-cost audit of your digital presence, marketing funnel, and content performance to uncover bottlenecks, missed opportunities, and clear next steps for growth.',
       features: ['Channel Audit', 'Conversion Review', 'Competitor Snapshot', 'Action Plan']
+    },
+    {
+      title: 'Social Media Growth',
+      icon: <TrendingUp className="w-10 h-10" />,
+      description: 'Data-driven community building',
+      details: 'Strategic content creation, audience targeting, and engagement optimization designed to build authentic communities that convert into loyal customers.',
+      features: ['Content Calendar', 'Influencer Partnerships', 'Community Management', 'Paid Social Strategy']
+    },
+    {
+      title: 'Digital Presence Management',
+      icon: <Globe className="w-10 h-10" />,
+      description: 'Comprehensive online positioning strategy',
+      details: 'We craft and manage your entire digital ecosystem - from website architecture to social platforms, ensuring consistent brand messaging and optimal user experience across all touchpoints.',
+      features: ['Website Strategy', 'SEO Optimization', 'Online Reputation', 'Multi-Platform Integration']
     }
   ];
 
