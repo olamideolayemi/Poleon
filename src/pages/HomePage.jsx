@@ -197,7 +197,7 @@ const HomePage = ({ onNavigate }) => {
       image: "/images/photo-1460925895917-afdab827c52f.jpeg",
       description:
         "We track performance, analyze results, and refine strategy to improve growth over time.",
-    }
+    },
   ];
 
   const howWeWork = [
@@ -413,19 +413,21 @@ const HomePage = ({ onNavigate }) => {
                 </div> */}
               </div>
 
-              <div className="absolute bottom-32 -left-16 px-4 py-3 rounded-xl border border-cyan-400/30 bg-slate-950/80 backdrop-blur-md animate-hero-drift">
+              <div className="absolute bottom-32 md:-left-16 px-4 py-3 rounded-xl border border-cyan-400/30 bg-slate-950/80 backdrop-blur-md animate-hero-drift">
                 <p className="text-cyan-300 text-xs uppercase tracking-wider">
-                  Average ROI Lift
+                  Your Growth.
                 </p>
-                <p className="text-white text-xl font-bold">+287%</p>
               </div>
 
               <div className="absolute top-16 -right-4 px-4 py-3 rounded-xl border border-violet-400/30 bg-slate-950/80 backdrop-blur-md animate-hero-drift-alt">
                 <p className="text-violet-200 text-xs uppercase tracking-wider">
-                  Campaign Focus
+                  Our Strategy.
                 </p>
-                <p className="text-white text-sm font-semibold">
-                  Performance Marketing
+              </div>
+
+              <div className="absolute bottom-16 right-6 px-4 py-3 rounded-xl border border-gray-400/30 bg-slate-950/80 backdrop-blur-md animate-hero-drift-slow">
+                <p className="text-white-100 text-xs uppercase tracking-wider">
+                  Real Results.
                 </p>
               </div>
             </div>
@@ -459,7 +461,10 @@ const HomePage = ({ onNavigate }) => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 md:mb-32 scroll-reveal" data-scroll-reveal>
+          <div
+            className="text-center mb-16 md:mb-32 scroll-reveal"
+            data-scroll-reveal
+          >
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               How We Help You Grow
             </h2>
@@ -525,7 +530,7 @@ const HomePage = ({ onNavigate }) => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -562,7 +567,7 @@ const HomePage = ({ onNavigate }) => {
       <section className="relative py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               How We Work Together
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -577,10 +582,10 @@ const HomePage = ({ onNavigate }) => {
                   <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent" />
                 )}
                 <div className="relative bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 transition-all duration-500">
-                  <div className="text-6xl font-bold bg-gradient-to-br from-cyan-400 to-violet-600 bg-clip-text text-transparent mb-4">
+                  <div className="text-4xl md:text-6xl font-bold bg-gradient-to-br from-cyan-400 to-violet-600 bg-clip-text text-transparent mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
                     {item.title}
                   </h3>
                   <ul className="space-y-2 text-gray-300">
@@ -800,7 +805,7 @@ const HomePage = ({ onNavigate }) => {
       {/* CTA Section */}
       <section className="relative py-16 md:py-32">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="relative bg-gradient-to-br from-cyan-600 to-violet-700 rounded-3xl p-16 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-cyan-600 to-violet-700 rounded-3xl p-8 md:p-16 overflow-hidden">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
 
             <div className="relative z-10 text-center text-white">

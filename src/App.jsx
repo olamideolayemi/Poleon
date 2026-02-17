@@ -115,7 +115,7 @@ export default function App() {
 
       <Footer setCurrentPage={setCurrentPage} />
 
-      <div className="fixed bottom-4 right-4 z-[60] px-3 py-2 rounded-lg border border-white/15 bg-slate-950/85 backdrop-blur-sm text-xs text-gray-200">
+      {/* <div className="fixed bottom-4 right-4 z-[60] px-3 py-2 rounded-lg border border-white/15 bg-slate-950/85 backdrop-blur-sm text-xs text-gray-200">
         Content source:{' '}
         <span
           className={
@@ -134,7 +134,7 @@ export default function App() {
                 ? 'Sanity'
                 : 'Local fallback'}
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }

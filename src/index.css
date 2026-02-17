@@ -136,6 +136,11 @@ h6 {
   will-change: transform;
 }
 
+.animate-hero-drift-slow {
+  animation: hero-vertical-drift 10s ease-in-out infinite;
+  will-change: transform;
+}
+
 .animate-hero-title-flow {
   background-size: 200% 200%;
   animation: hero-title-flow 7s linear infinite;
@@ -156,6 +161,24 @@ h6 {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
+}
+
+.thin-x-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #22d3ee transparent;
+}
+
+.thin-x-scroll::-webkit-scrollbar {
+  height: 0.1px;
+}
+
+.thin-x-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-x-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #22d3ee, #8b5cf6);
+  border-radius: 9999px;
 }
 
 @media (prefers-reduced-motion: reduce) {
