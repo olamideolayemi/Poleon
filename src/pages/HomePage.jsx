@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import AnimatedCounter from "../components/AnimatedCounter";
 import FloatingOrbs from "../components/FloatingOrbs";
-import GridOverlay from "../components/GridOverlay"
+import GridOverlay from "../components/GridOverlay";
 import WorkShowcase from "../components/HorizontalScroll";
 
 // Homepage
@@ -166,42 +166,76 @@ const HomePage = ({ onNavigate }) => {
     {
       step: "01",
       title: "Customized Content Strategy",
-      image:
-        "/images/photo-1454165804606-c3d57bc86b40.jpeg",
+      image: "/images/photo-1454165804606-c3d57bc86b40.jpeg",
       description:
         "We start by understanding your business, audience, and goals, so  every action has a purpose.",
     },
     {
       step: "02",
       title: "Done-for-You Content Creation",
-      image:
-        "/images/photo-1553028826-f4804a6dba3b.jpeg",
+      image: "/images/photo-1553028826-f4804a6dba3b.jpeg",
       description:
         "High-quality posts, captions, and videos crafted to connect with your audience.",
     },
     {
       step: "03",
       title: "Scheduling & Consistency",
-      image:
-        "/images/photo-1552664730-d307ca884978.jpeg",
+      image: "/images/photo-1552664730-d307ca884978.jpeg",
       description:
         "We ensure your brand shows up consistently at the right times and places",
     },
     {
       step: "04",
       title: "Engagement & Growth",
-      image:
-        "/images/photo-1521737604893-d14cc237f11d.jpeg",
+      image: "/images/photo-1521737604893-d14cc237f11d.jpeg",
       description:
         "We actively manage interactions and help turn conversations into customer relationships.",
     },
     {
       step: "05",
       title: "Monthly Analytics & Strategy Adjustments",
-      image:
-        "/images/photo-1460925895917-afdab827c52f.jpeg",
+      image: "/images/photo-1460925895917-afdab827c52f.jpeg",
       description:
         "We track performance, analyze results, and refine strategy to improve growth over time.",
+    }
+  ];
+
+  const howWeWork = [
+    {
+      step: "01",
+      title: "Content Creation & Approval",
+      image: "/images/photo-1454165804606-c3d57bc86b40.jpeg",
+      description: [
+        "You will receive a weekly content plan every Monday for approval.",
+        "If no feedback is received within 24 to 48 hours, we assume it is approved.",
+      ],
+    },
+    {
+      step: "02",
+      title: "Engagement & Community Management",
+      image: "/images/photo-1553028826-f4804a6dba3b.jpeg",
+      description: [
+        "We respond to comments and direct messages.",
+        "If an inquiry requires your input, we will notify you.",
+      ],
+    },
+    {
+      step: "03",
+      title: "Analytics & Reporting",
+      image: "/images/photo-1552664730-d307ca884978.jpeg",
+      description: [
+        "A monthly performance report is sent on the last day of each month.",
+        "We analyze what is working and adjust strategy accordingly.",
+      ],
+    },
+    {
+      step: "04",
+      title: "Communication & Support",
+      image: "/images/photo-1521737604893-d14cc237f11d.jpeg",
+      description: [
+        "Preferred contact method: WhatsApp +234 902 418 2998.",
+        "Check-in meetings: every 2 weeks, monthly, or as needed.",
+      ],
     },
   ];
 
@@ -231,42 +265,49 @@ const HomePage = ({ onNavigate }) => {
 
   const heroSpotlight = {
     title: "Campaign Planning Session",
-    image:
-      "/images/isometric_people-1.png",
+    image: "/images/isometric_people-1.png",
   };
-  const heroBackgroundImage =
-    "/images/photo-1432888622747-4eb9a8efeb07.jpeg";
+  const heroBackgroundImage = "/images/photo-1432888622747-4eb9a8efeb07.jpeg";
 
   const visualShowcase = [
     {
       title: "Performance Dashboards",
       description: "Live insights that keep every campaign accountable.",
-      image:
-        "/images/photo-1551288049-bebda4e38f71.jpeg",
+      image: "/images/photo-1551288049-bebda4e38f71.jpeg",
     },
     {
       title: "Content Production",
       description: "High-impact creative built for platform-native growth.",
-      image:
-        "/images/photo-1522202176988-66273c2fd55f.jpeg",
+      image: "/images/photo-1522202176988-66273c2fd55f.jpeg",
     },
     {
       title: "Client Collaboration",
       description: "Transparent partnerships focused on measurable wins.",
-      image:
-        "/images/photo-1521737604893-d14cc237f11d.jpeg",
+      image: "/images/photo-1521737604893-d14cc237f11d.jpeg",
     },
   ];
 
   const collaborationPills = [
-    { label: "Simple", icon: Sparkles, className: "-top-4 left-6 animate-float" },
-    { label: "Clear", icon: Target, className: "top-8 -right-4 animate-float-slow" },
+    {
+      label: "Simple",
+      icon: Sparkles,
+      className: "-top-4 left-6 animate-float",
+    },
+    {
+      label: "Clear",
+      icon: Target,
+      className: "top-8 -right-4 animate-float-slow",
+    },
     {
       label: "Collaborative",
       icon: Users,
       className: "bottom-10 -left-6 animate-float-slower",
     },
-    { label: "Growth", icon: TrendingUp, className: "-bottom-4 right-10 animate-float" },
+    {
+      label: "Growth",
+      icon: TrendingUp,
+      className: "-bottom-4 right-10 animate-float",
+    },
   ];
 
   const previousWork = [
@@ -276,7 +317,7 @@ const HomePage = ({ onNavigate }) => {
       label: "Furniture Retail",
       image: "/logos/home-office.jpeg",
       summary:
-        "Reframed brand storytelling and product education to build trust and drive consistent purchase intent."
+        "Reframed brand storytelling and product education to build trust and drive consistent purchase intent.",
     },
     {
       id: "priceslash",
@@ -284,7 +325,7 @@ const HomePage = ({ onNavigate }) => {
       label: "Consumer Products",
       image: "/logos/priceslash.jpg",
       summary:
-        "Built digital presence from zero and scaled practical social formats for awareness and conversion."
+        "Built digital presence from zero and scaled practical social formats for awareness and conversion.",
     },
     {
       id: "whitecrest",
@@ -292,7 +333,7 @@ const HomePage = ({ onNavigate }) => {
       label: "Performance Ops",
       image: "/logos/whitecrest-factor.jpg",
       summary:
-        "Unified reporting and execution rhythms so strategy and delivery moved with the same cadence."
+        "Unified reporting and execution rhythms so strategy and delivery moved with the same cadence.",
     },
   ];
 
@@ -322,7 +363,7 @@ const HomePage = ({ onNavigate }) => {
               </div>
 
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent animate-hero-title-flow">
                   We build digital systems that meet your customers at every
                   touchpoint.
                 </span>
@@ -400,7 +441,10 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* How We Help You Grow Section */}
-      <section ref={howWeHelpRef} className="relative py-16 md:py-32 overflow-hidden">
+      <section
+        ref={howWeHelpRef}
+        className="relative py-16 md:py-32 overflow-hidden"
+      >
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-30 animate-grid-drift"
@@ -415,7 +459,7 @@ const HomePage = ({ onNavigate }) => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 scroll-reveal" data-scroll-reveal>
+          <div className="text-center mb-16 md:mb-32 scroll-reveal" data-scroll-reveal>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               How We Help You Grow
             </h2>
@@ -438,7 +482,7 @@ const HomePage = ({ onNavigate }) => {
                 <div
                   className={`w-full lg:flex-1 ${index % 2 === 0 ? "lg:pr-12 lg:text-right" : "lg:pl-12"}`}
                 >
-                  <article className="relative overflow-hidden border border-white/10 rounded-2xl p-6 md:p-8 hover:border-cyan-500/50 transition-all duration-500">
+                  <article className="relative overflow-hidden border border-white/10 rounded-2xl -mt-12 p-6 md:p-8 hover:border-cyan-500/50 transition-all duration-500">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -473,7 +517,9 @@ const HomePage = ({ onNavigate }) => {
       <section className="relative py-16 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">What We Do</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              What We Do
+            </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Comprehensive digital solutions designed for exponential growth
             </p>
@@ -511,6 +557,46 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       <WorkShowcase previousWork={previousWork} />
+
+      {/* How We Work Together Section */}
+      <section className="relative py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-6">
+              How We Work Together
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Communication and Support
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {howWeWork.map((item, index) => (
+              <div key={index} className="relative">
+                {index < howWeWork.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent" />
+                )}
+                <div className="relative bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 transition-all duration-500">
+                  <div className="text-6xl font-bold bg-gradient-to-br from-cyan-400 to-violet-600 bg-clip-text text-transparent mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {item.title}
+                  </h3>
+                  <ul className="space-y-2 text-gray-300">
+                    {item.description.map((point) => (
+                      <li key={point} className="flex items-start gap-3">
+                        <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -645,7 +731,9 @@ const HomePage = ({ onNavigate }) => {
                       <p className="text-xl font-bold text-white">
                         {testimonial.name}
                       </p>
-                      <p className="text-cyan-300 text-sm">{testimonial.role}</p>
+                      <p className="text-cyan-300 text-sm">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
                   <p className="text-gray-300 leading-relaxed mb-3">
@@ -683,7 +771,9 @@ const HomePage = ({ onNavigate }) => {
               </article>
 
               <div className="rounded-3xl bg-white p-6 md:p-7 text-slate-900">
-                <h3 className="text-2xl font-bold mb-5">Start your success story</h3>
+                <h3 className="text-2xl font-bold mb-5">
+                  Start your success story
+                </h3>
                 <div className="space-y-3 mb-5">
                   <div className="h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center px-4 text-slate-500 text-sm">
                     Company name

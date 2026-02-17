@@ -97,6 +97,15 @@ h6 {
   }
 }
 
+@keyframes hero-title-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
 .animate-float {
   animation: float 20s ease-in-out infinite;
 }
@@ -127,6 +136,11 @@ h6 {
   will-change: transform;
 }
 
+.animate-hero-title-flow {
+  background-size: 200% 200%;
+  animation: hero-title-flow 7s linear infinite;
+}
+
 .scroll-reveal {
   opacity: 0;
   transform: translateY(36px);
@@ -145,6 +159,10 @@ h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-hero-title-flow {
+    animation: none;
+  }
+
   .scroll-reveal {
     opacity: 1;
     transform: none;

@@ -53,18 +53,18 @@ function WorkShowcase({ previousWork }) {
     offset: ["start start", "end end"],
   });
 
-  const START_HOLD = 0.08;
-const END_HOLD = 0.15;
+//   const START_HOLD = 0.08;
+// const END_HOLD = 0;
 
-const rawX = useTransform(
-  scrollYProgress,
-  [0, START_HOLD, 1 - END_HOLD, 1],
-  [centerOffset, 0, -travel, -travel]
-);
+// const rawX = useTransform(
+//   scrollYProgress,
+//   [0, START_HOLD, 1 - END_HOLD, 1],
+//   [centerOffset, 0, -travel, -travel]
+// );
 
 
   // Move from first card centered to last card centered
-//   const rawX = useTransform(scrollYProgress, [0, 1], [1, -travel]);
+  const rawX = useTransform(scrollYProgress, [0, 1], [centerOffset, -travel]);
   const x = useSpring(rawX, { stiffness: 140, damping: 90, mass: 2.7 });
 
   const SPEED = 1.2;
@@ -109,7 +109,7 @@ const rawX = useTransform(
                 {previousWork.map((item) => (
                   <article
                     key={item.id}
-                    className="group relative flex-shrink-0 w-[320px] md:w-[440px] h-[420px] md:h-[520px]
+                    className="group relative flex-shrink-0 w-[320px] md:w-[440px] h-[420px] md:h-[420px]
                 overflow-hidden rounded-2xl border border-white/15 bg-slate-900/60"
                   >
                     <img
