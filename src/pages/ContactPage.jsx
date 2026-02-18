@@ -28,7 +28,7 @@ const faqItems = [
 
 const ContactPage = () => {
   const heroBackgroundImage =
-    '/images/photo-1521737604893-d14cc237f11d.jpeg';
+    '/images/image-003.jpeg';
 
   const [formData, setFormData] = useState({
     name: "",
@@ -236,9 +236,19 @@ const ContactPage = () => {
       </section>
 
       <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/image-004.jpeg"
+            alt="Frequently asked questions background"
+            className="w-full h-full object-cover opacity-25"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#070b22]/95 via-[#0a0e27]/85 to-[#080d24]/95" />
+        </div>
+
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-white mb-8">FAQs</h2>
-          <p className="text-gray-300 text-lg mb-12 leading-relaxed">
+          <h2 className="relative z-10 text-4xl font-bold text-white mb-8">FAQs</h2>
+          <p className="relative z-10 text-gray-300 text-lg mb-12 leading-relaxed">
             Common Client Questions
           </p>
         </div>

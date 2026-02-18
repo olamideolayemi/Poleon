@@ -77,7 +77,7 @@ function WorkShowcase({ previousWork, onViewPortfolio }) {
   const rawX = useTransform(scrollYProgress, [0, 1], [centerOffset, -travel]);
   const x = useSpring(rawX, { stiffness: 140, damping: 90, mass: 2.7 });
 
-  const SPEED = 1.6;
+  const SPEED = 2.0;
   const containerHeight = useMemo(
     () => `calc(50vh + ${travel * SPEED}px)`,
     [travel],

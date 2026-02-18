@@ -18,6 +18,9 @@ import WorkShowcase from "../components/HorizontalScroll";
 // Homepage
 const HomePage = ({ onNavigate }) => {
   const howWeHelpRef = useRef(null);
+  const heroTitleText =
+    "We build digital systems that meet your customers at every touchpoint.";
+  const [typedHeroTitle, setTypedHeroTitle] = useState("");
 
   useEffect(() => {
     const section = howWeHelpRef.current;
@@ -42,6 +45,20 @@ const HomePage = ({ onNavigate }) => {
     revealItems.forEach((item) => observer.observe(item));
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    let index = 0;
+    const timer = window.setInterval(() => {
+      index += 1;
+      setTypedHeroTitle(heroTitleText.slice(0, index));
+
+      if (index >= heroTitleText.length) {
+        window.clearInterval(timer);
+      }
+    }, 34);
+
+    return () => window.clearInterval(timer);
   }, []);
 
   const services = [
@@ -267,7 +284,7 @@ const HomePage = ({ onNavigate }) => {
     title: "Campaign Planning Session",
     image: "/images/isometric_people-1.png",
   };
-  const heroBackgroundImage = "/images/photo-1432888622747-4eb9a8efeb07.jpeg";
+  const heroBackgroundImage = "/images/image-001.jpeg";
 
   const visualShowcase = [
     {
@@ -354,7 +371,7 @@ const HomePage = ({ onNavigate }) => {
         <GridOverlay />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center animate-fade-in">
+          <div className="grid lg:grid-cols-2 gap-0 lg:gap-14 items-center animate-fade-in">
             <div className="space-y-8 text-center lg:text-left">
               <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full">
                 <span className="text-cyan-400 text-sm font-medium">
@@ -363,9 +380,8 @@ const HomePage = ({ onNavigate }) => {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent animate-hero-title-flow">
-                  We build digital systems that meet your customers at every
-                  touchpoint.
+                <span className="hero-typewriter bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+                  {typedHeroTitle}
                 </span>
               </h1>
 

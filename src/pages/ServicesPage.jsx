@@ -53,6 +53,25 @@ const ServicesPage = () => {
     }
   ];
 
+  const accessGuideRows = [
+    {
+      platform: 'Instagram & Facebook',
+      access: 'Add us as an admin/editor via Meta Business Suite.',
+    },
+    {
+      platform: 'TikTok',
+      access: 'Add us as a Business Manager under "Account Access".',
+    },
+    {
+      platform: 'LinkedIn',
+      access: 'Add us as a Page Admin under "Manage Admins".',
+    },
+    {
+      platform: 'YouTube',
+      access: 'Grant access via YouTube Studio > Permissions.',
+    },
+  ];
+
   return (
     <div className="relative pt-32">
       {/* Hero */}
@@ -100,7 +119,7 @@ const ServicesPage = () => {
                       <div className="text-white">{service.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{service.title}</h3>
+                      <h3 className="text-xl md:text-3xl font-bold text-white mb-2">{service.title}</h3>
                       <p className="text-gray-400">{service.description}</p>
                     </div>
                   </div>
@@ -135,13 +154,115 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* Social Media Access & Security Guide */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/image-002.jpeg"
+            alt="Social media access and security guide background"
+            className="w-full h-full object-cover opacity-35"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#070b22]/85 via-[#0a0e27]/80 to-[#080d24]/85" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="relative z-10 rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-950/40 via-slate-900/75 to-violet-950/40 p-8 md:p-12">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
+              SOCIAL MEDIA ACCESS &amp; SECURITY GUIDE
+            </h2>
+            <p className="text-xl md:text-3xl font-semibold text-gray-200 mb-10 md:mb-14 max-w-4xl leading-tight">
+              How to Grant Access Without Sharing Your Password.
+            </p>
+
+            <div className="border border-white/15 rounded-2xl overflow-hidden">
+              <table className="w-full border-collapse table-fixed">
+                <thead>
+                  <tr className="bg-white/5">
+                    <th className="w-[38%] border border-white/15 px-3 md:px-6 py-3 md:py-5 text-left text-sm md:text-xl font-bold text-cyan-300">
+                      Platform
+                    </th>
+                    <th className="border border-white/15 px-3 md:px-6 py-3 md:py-5 text-left text-sm md:text-xl font-bold text-cyan-300">
+                      How to Grant Access
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {accessGuideRows.map((row) => (
+                    <tr key={row.platform}>
+                      <td className="border border-white/15 px-3 md:px-6 py-3 md:py-6 text-sm md:text-2xl font-medium text-white align-top">
+                        {row.platform}
+                      </td>
+                      <td className="border border-white/15 px-3 md:px-6 py-3 md:py-6 text-sm md:text-2xl text-gray-200 align-top">
+                        {row.access}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-md md:text-2xl font-semibold mt-10 md:mt-14 text-white">
+              Preferred Secure Sharing Method: [LastPass / 1Password]
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Expectations & Responsibilities */}
+      <section className="relative py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-950/30 via-slate-900/70 to-violet-950/30 p-8 md:p-12">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              CLIENT EXPECTATIONS &amp; RESPONSIBILITIES
+            </h2>
+
+            <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-4xl">
+              To make our collaboration smooth and effective, here&apos;s what we need from you:
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
+              <article className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <h3 className="text-cyan-300 font-bold text-sm md:text-base tracking-[0.12em] mb-3">
+                  TIMELY FEEDBACK &amp; APPROVALS
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  This helps us keep content on schedule.
+                </p>
+              </article>
+
+              <article className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <h3 className="text-cyan-300 font-bold text-sm md:text-base tracking-[0.12em] mb-3">
+                  BRAND ASSETS &amp; ACCESS
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Provide logos, brand colors, and brand guidelines.
+                </p>
+              </article>
+
+              <article className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6">
+                <h3 className="text-cyan-300 font-bold text-sm md:text-base tracking-[0.12em] mb-3">
+                  CONTENT &amp; OFFERS
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Let us know of upcoming promotions or key business updates.
+                </p>
+              </article>
+            </div>
+
+            <p className="text-md md:text-2xl font-semibold text-white">
+              When we work together as a team, your brand&apos;s social media will thrive!
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Process Diagram */}
       <section className="relative py-32 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Approach</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Our Approach</h2>
             <p className="text-xl text-gray-400">
-              A proven methodology for digital success
+              Our proven methodology for digital success
             </p>
           </div>
 
@@ -151,27 +272,27 @@ const ServicesPage = () => {
                 <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
                   1
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Analyze</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Clear Strategy</h3>
                 <p className="text-gray-400">
-                  Deep dive into your market, competitors, and opportunities
+                  We define focused direction based on your business goals and market realities.
                 </p>
               </div>
               <div className="text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
                   2
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Strategize</h3>
+                <h3 className="text-xl text-2xl font-bold text-white mb-3">Quality Content</h3>
                 <p className="text-gray-400">
-                  Custom roadmap aligned with your business objectives
+                  We produce consistent, audience-first content designed to build trust and engagement.
                 </p>
               </div>
               <div className="text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
                   3
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Execute & Optimize</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Measurable Results</h3>
                 <p className="text-gray-400">
-                  Implement with precision and continuously refine based on data
+                  We track performance, report outcomes clearly, and improve continuously from data.
                 </p>
               </div>
             </div>

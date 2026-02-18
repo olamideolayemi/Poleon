@@ -3,7 +3,7 @@ import FloatingOrbs from "../components/FloatingOrbs";
 import GridOverlay from "../components/GridOverlay";
 // About Page
 const AboutPage = () => {
-  const heroBackgroundImage = "/images/photo-1552664730-d307ca884978.jpeg";
+  const heroBackgroundImage = "/images/image-005.jpg";
 
   const values = [
     {
