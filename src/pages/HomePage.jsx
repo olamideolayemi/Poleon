@@ -577,48 +577,63 @@ const HomePage = ({ onNavigate }) => {
         </div>
       </section>
 
-      <WorkShowcase
-        previousWork={previousWork}
-        onViewPortfolio={() => onNavigate?.("portfolio")}
-      />
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060b22] via-[#0a0f2b] to-[#05091f]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.2),transparent_40%)]" />
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(255,255,255,0.28) 0.8px, transparent 0.8px)",
+            backgroundSize: "14px 14px",
+          }}
+        />
+        <div className="relative z-10">
+          <WorkShowcase
+            previousWork={previousWork}
+            onViewPortfolio={() => onNavigate?.("portfolio")}
+            showBackground={false}
+          />
 
-      {/* How We Work Together Section */}
-      <section className="relative py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              How We Work Together
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Communication and Support
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {howWeWork.map((item, index) => (
-              <div key={index} className="relative">
-                {index < howWeWork.length - 1 && (
-                  <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent" />
-                )}
-                <div className="relative bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 transition-all duration-500">
-                  <div className="text-4xl md:text-6xl font-bold bg-gradient-to-br from-cyan-400 to-violet-600 bg-clip-text text-transparent mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-                    {item.title}
-                  </h3>
-                  <ul className="space-y-2 text-gray-300">
-                    {item.description.map((point) => (
-                      <li key={point} className="flex items-start gap-3">
-                        <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* How We Work Together Section */}
+          <section className="relative py-32">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                  How We Work Together
+                </h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                  Communication and Support
+                </p>
               </div>
-            ))}
-          </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {howWeWork.map((item, index) => (
+                  <div key={index} className="relative">
+                    {index < howWeWork.length - 1 && (
+                      <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent" />
+                    )}
+                    <div className="relative bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 transition-all duration-500">
+                      <div className="text-4xl md:text-6xl font-bold bg-gradient-to-br from-cyan-400 to-violet-600 bg-clip-text text-transparent mb-4">
+                        {item.step}
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                        {item.title}
+                      </h3>
+                      <ul className="space-y-2 text-gray-300">
+                        {item.description.map((point) => (
+                          <li key={point} className="flex items-start gap-3">
+                            <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 

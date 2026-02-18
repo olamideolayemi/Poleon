@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-function WorkShowcase({ previousWork, onViewPortfolio }) {
+function WorkShowcase({ previousWork, onViewPortfolio, showBackground = true }) {
   const containerRef = useRef(null);
   const viewportRef = useRef(null);
   const rowRef = useRef(null);
@@ -86,8 +86,12 @@ function WorkShowcase({ previousWork, onViewPortfolio }) {
   if (isMobile) {
     return (
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060b22] via-[#0a0f2b] to-[#05091f]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.2),transparent_40%)]" />
+        {showBackground && (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#060b22] via-[#0a0f2b] to-[#05091f]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.2),transparent_40%)]" />
+          </>
+        )}
 
         <div className="relative z-10 px-6">
           <div className="flex items-start justify-between gap-4">
@@ -147,8 +151,12 @@ function WorkShowcase({ previousWork, onViewPortfolio }) {
       style={{ height: containerHeight }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060b22] via-[#0a0f2b] to-[#05091f]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.2),transparent_40%)]" />
+        {showBackground && (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#060b22] via-[#0a0f2b] to-[#05091f]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(34,211,238,0.2),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(139,92,246,0.2),transparent_40%)]" />
+          </>
+        )}
 
         <div className="relative z-10 pt-16 md:pt-24 px-6 md:px-10">
           <div className="flex items-start justify-between gap-6">
