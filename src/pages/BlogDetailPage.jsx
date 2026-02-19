@@ -87,7 +87,7 @@ const BlogDetailPage = ({ post, allPosts, onOpenPost, onBack }) => {
 
   return (
     <div className="relative pt-32">
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-20">
         <div className="absolute inset-0">
           <img
             src={heroBackgroundImage}
@@ -123,10 +123,10 @@ const BlogDetailPage = ({ post, allPosts, onOpenPost, onBack }) => {
               </div>
             </article>
 
-            <aside className="lg:sticky lg:top-28">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
+            <aside className="lg:self-start">
+              <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col">
                 <h2 className="text-xl font-bold text-white mb-4">Related posts</h2>
-                <div className="space-y-3 max-h-[70vh] overflow-y-auto pr-1">
+                <div className="space-y-3 overflow-y-auto pr-1 min-h-0">
                   {relatedPosts.map((item) => (
                     <button
                       key={item.slug}
