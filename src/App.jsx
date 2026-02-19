@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useCallback, useState } from 'react';
+import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -12,12 +13,62 @@ import BlogDetailPage from './pages/BlogDetailPage';
 import ContactPage from './pages/ContactPage';
 import { useCmsContent } from './hooks/useCmsContent';
 
+function BlogDetailRoute({ blogPosts }) {
+  const navigate = useNavigate();
+  const { slug } = useParams();
+  const selectedBlog = useMemo(
+    () => blogPosts.find((post) => post.slug === slug) ?? null,
+    [blogPosts, slug]
+  );
+
+  return (
+    <BlogDetailPage
+      post={selectedBlog}
+      allPosts={blogPosts}
+      onOpenPost={(nextSlug) => navigate(`/blog/${nextSlug}`)}
+      onBack={() => navigate('/blog')}
+    />
+  );
+}
+
+function PortfolioDetailRoute({ portfolioProjects }) {
+  const navigate = useNavigate();
+  const { slug } = useParams();
+  const selectedProject = useMemo(
+    () => portfolioProjects.find((study) => study.slug === slug) ?? null,
+    [portfolioProjects, slug]
+  );
+
+  return (
+    <PortfolioDetailPage
+      study={selectedProject}
+      onBack={() => navigate('/portfolio')}
+      onOpenGallery={() => navigate(`/portfolio/${slug}/gallery`)}
+    />
+  );
+}
+
+function PortfolioGalleryRoute({ portfolioProjects }) {
+  const navigate = useNavigate();
+  const { slug } = useParams();
+  const selectedProject = useMemo(
+    () => portfolioProjects.find((study) => study.slug === slug) ?? null,
+    [portfolioProjects, slug]
+  );
+
+  return (
+    <PortfolioGalleryPage
+      study={selectedProject}
+      onBackToProject={() => navigate(`/portfolio/${slug}`)}
+    />
+  );
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [selectedBlogSlug, setSelectedBlogSlug] = useState(null);
-  const [selectedProjectSlug, setSelectedProjectSlug] = useState(null);
-  const { blogPosts, portfolioProjects, source, loading } = useCmsContent();
+  const { blogPosts, portfolioProjects } = useCmsContent();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,111 +81,73 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage, selectedBlogSlug]);
+  }, [location.pathname]);
 
-  const selectedBlog = useMemo(
-    () => blogPosts.find((post) => post.slug === selectedBlogSlug) ?? null,
-    [blogPosts, selectedBlogSlug]
+  const currentPage = useMemo(() => {
+    const path = location.pathname;
+
+    if (path.startsWith('/about')) return 'about';
+    if (path.startsWith('/services')) return 'services';
+    if (path.startsWith('/portfolio')) return 'portfolio';
+    if (path.startsWith('/blog')) return 'blog';
+    if (path.startsWith('/contact')) return 'contact';
+
+    return 'home';
+  }, [location.pathname]);
+
+  const navigateToPage = useCallback(
+    (page) => {
+      const routeMap = {
+        home: '/',
+        about: '/about',
+        services: '/services',
+        portfolio: '/portfolio',
+        blog: '/blog',
+        contact: '/contact',
+      };
+
+      navigate(routeMap[page] ?? '/');
+    },
+    [navigate]
   );
-  const selectedProject = useMemo(
-    () => portfolioProjects.find((study) => study.slug === selectedProjectSlug) ?? null,
-    [portfolioProjects, selectedProjectSlug]
-  );
-
-  const openBlogPost = (slug) => {
-    setSelectedBlogSlug(slug);
-    setCurrentPage('blog-detail');
-  };
-
-  const closeBlogPost = () => {
-    setCurrentPage('blog');
-    setSelectedBlogSlug(null);
-  };
-
-  const openProject = (slug) => {
-    setSelectedProjectSlug(slug);
-    setCurrentPage('portfolio-detail');
-  };
-
-  const closeProject = () => {
-    setCurrentPage('portfolio');
-    setSelectedProjectSlug(null);
-  };
-
-  const openProjectGallery = () => {
-    setCurrentPage('portfolio-gallery');
-  };
-
-  const closeProjectGallery = () => {
-    setCurrentPage('portfolio-detail');
-  };
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage onNavigate={setCurrentPage} />;
-      case 'about':
-        return <AboutPage />;
-      case 'services':
-        return <ServicesPage />;
-      case 'portfolio':
-        return <PortfolioPage projects={portfolioProjects} onOpenProject={openProject} />;
-      case 'portfolio-detail':
-        return (
-          <PortfolioDetailPage
-            study={selectedProject}
-            onBack={closeProject}
-            onOpenGallery={openProjectGallery}
-          />
-        );
-      case 'portfolio-gallery':
-        return <PortfolioGalleryPage study={selectedProject} onBackToProject={closeProjectGallery} />;
-      case 'blog':
-        return <BlogPage posts={blogPosts} onOpenPost={openBlogPost} />;
-      case 'blog-detail':
-        return (
-          <BlogDetailPage
-            post={selectedBlog}
-            allPosts={blogPosts}
-            onOpenPost={openBlogPost}
-            onBack={closeBlogPost}
-          />
-        );
-      case 'contact':
-        return <ContactPage />;
-      default:
-        return <HomePage onNavigate={setCurrentPage} />;
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0a0e27] text-white font-sans antialiased overflow-x-hidden">
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} isScrolled={isScrolled} />
+      <Navigation currentPage={currentPage} setCurrentPage={navigateToPage} isScrolled={isScrolled} />
 
-      <main>{renderPage()}</main>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage onNavigate={navigateToPage} />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route
+            path="/portfolio"
+            element={
+              <PortfolioPage
+                projects={portfolioProjects}
+                onOpenProject={(slug) => navigate(`/portfolio/${slug}`)}
+              />
+            }
+          />
+          <Route
+            path="/portfolio/:slug"
+            element={<PortfolioDetailRoute portfolioProjects={portfolioProjects} />}
+          />
+          <Route
+            path="/portfolio/:slug/gallery"
+            element={<PortfolioGalleryRoute portfolioProjects={portfolioProjects} />}
+          />
+          <Route
+            path="/blog"
+            element={<BlogPage posts={blogPosts} onOpenPost={(slug) => navigate(`/blog/${slug}`)} />}
+          />
+          <Route path="/blog/:slug" element={<BlogDetailRoute blogPosts={blogPosts} />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
 
-      <Footer setCurrentPage={setCurrentPage} />
-
-      {/* <div className="fixed bottom-4 right-4 z-[60] px-3 py-2 rounded-lg border border-white/15 bg-slate-950/85 backdrop-blur-sm text-xs text-gray-200">
-        Content source:{' '}
-        <span
-          className={
-            source === 'combined'
-              ? 'text-cyan-300'
-              : source === 'sanity'
-                ? 'text-emerald-300'
-                : 'text-amber-300'
-          }
-        >
-          {loading
-            ? 'Loading CMS...'
-            : source === 'combined'
-              ? 'Sanity + Local'
-              : source === 'sanity'
-                ? 'Sanity'
-                : 'Local fallback'}
-        </span>
-      </div> */}
+      <Footer setCurrentPage={navigateToPage} />
     </div>
   );
 }
